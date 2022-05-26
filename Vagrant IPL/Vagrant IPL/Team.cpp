@@ -35,13 +35,14 @@ void Team::ShowData(bool tableFormat)
 	cout << endl;
 }
 
-bool Team::Has2ConsecutiveLosses()
+bool Team::HasNConsecutiveResults(int n, Result result)
 {
+	if (n > Team::N) return false;
 	int curStreak = 0;
 	for (int i = 0; i < Team::N; ++i)
 	{
-		curStreak = (lastNMatches[i] == Result::Loss) ? curStreak + 1 : 0;
-		if (curStreak == 2) return true;
+		curStreak = (lastNMatches[i] == result) ? curStreak + 1 : 0;
+		if (curStreak == n) return true;
 	}
 	return false;
 }

@@ -16,6 +16,6 @@ public:
 	Team(string name, int points, Result* lastNMatches);
 	void SetData(string name, int points, Result* lastNMatches);
 	void ShowData(bool tableFormat = false);
-	bool Has2ConsecutiveLosses();
+	bool HasNConsecutiveResults(int n = 2, Result result = Result::Loss);
 	~Team();
 };
