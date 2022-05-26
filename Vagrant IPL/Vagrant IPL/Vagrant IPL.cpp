@@ -39,6 +39,7 @@ int main()
 	while (t--)
 	{
 		int n, nTWS = 0;
+		double pointsSum = 0;
 		cin >> n;
 		Team* teams = new Team[n];
 		Team** teamsWithStreak = new Team * [n] {nullptr};
@@ -63,11 +64,14 @@ int main()
 			}
 			delete[] lastNMatches;
 		}
-		while (nTWS--)
+		
+		for(int i = 0; i < nTWS; ++i)
 		{
-			teamsWithStreak[nTWS]->ShowData();
+			teamsWithStreak[i]->ShowData();
+			pointsSum += teamsWithStreak[i]->getPoints();
 			cout << endl;
 		}
+		cout << "\n\nAverage of Points scored by shortlisted teams = \t" << pointsSum / nTWS << "\n\n";
 		delete[] teamsWithStreak;
 		delete[] teams;
 	}

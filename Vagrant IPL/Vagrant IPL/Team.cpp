@@ -5,6 +5,11 @@ Team::Team(string name, int points, Result* lastNMatches)
 	SetData(name, points, lastNMatches);
 }
 
+int Team::getPoints()
+{
+	return points;
+}
+
 void Team::SetData(string name, int points, Result* lastNMatches)
 {
 	this->name = name;
